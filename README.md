@@ -1,5 +1,7 @@
 # secops-audit
 
+<img src="assets/banner.svg" alt="secops-audit — offline security review for code and for agents" width="880">
+
 [![tests](https://img.shields.io/badge/tests-23%20passing-brightgreen)](#tests)
 [![python](https://img.shields.io/badge/python-3.8%2B-blue)](#)
 [![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](#)
@@ -32,6 +34,8 @@ python3 scripts/audit.py --path . --format sarif --out secops-audit.sarif
 ```
 
 Python 3.8+. Zero dependencies. Safe to run in an air-gapped job.
+
+<img src="assets/demo.svg" alt="secops-audit terminal demo — scanning a repo and reporting HIGH/MEDIUM/LOW findings" width="820">
 
 ## What it checks
 
@@ -139,6 +143,7 @@ SKILL.md                          # the Agent Skill
 scripts/audit.py                  # the scanner (stdlib only)
 action.yml                        # composite GitHub Action
 .github/workflows/secops-audit.yml
+assets/                           # banner + demo (SVG)
 tests/test_audit.py               # unittest suite
 tests/fixtures/                   # vulnerable.py (demo) + clean.py (must stay clean)
 references/                       # OWASP / GDPR / HIPAA checklists

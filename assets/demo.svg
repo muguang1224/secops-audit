@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="470" viewBox="0 0 1280 470" role="img" aria-label="secops-audit terminal demo">
+  <defs>
+    <linearGradient id="tbg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="100%" stop-color="#0b0f14"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="470" rx="14" fill="url(#tbg)"/>
+  <rect width="1280" height="470" rx="14" fill="none" stroke="#30363d" stroke-width="1"/>
+  <line x1="0" y1="42" x2="1280" y2="42" stroke="#30363d"/>
+  <circle cx="26" cy="21" r="7" fill="#ff5f56"/>
+  <circle cx="50" cy="21" r="7" fill="#ffbd2e"/>
+  <circle cx="74" cy="21" r="7" fill="#27c93f"/>
+  <text x="640" y="27" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="14" fill="#8b949e">secops-audit</text>
+
+  <g font-family="ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace" font-size="16">
+    <text x="34" y="80" fill="#7ee787">$</text>
+    <text x="52" y="80" fill="#c9d1d9">python3 scripts/audit.py --path . --out SECURITY.md</text>
+
+    <text x="34" y="118" fill="#f0f6fc" font-weight="700"># Security audit</text>
+    <text x="34" y="144" fill="#8b949e">Files scanned: 42  ·  </text>
+    <text x="236" y="144" fill="#f85149">HIGH: 3</text>
+    <text x="316" y="144" fill="#d29922">MEDIUM: 5</text>
+    <text x="428" y="144" fill="#8b949e">LOW: 2</text>
+
+    <text x="34" y="186" fill="#f85149" font-weight="700">## HIGH (3)</text>
+    <text x="34" y="212" fill="#c9d1d9">- Hardcoded AWS access key id — </text>
+    <text x="404" y="212" fill="#79c0ff">src/config.py:12</text>
+    <text x="60" y="234" fill="#8b949e">`AKI…******`</text>
+    <text x="34" y="256" fill="#c9d1d9">- subprocess with shell=True — </text>
+    <text x="390" y="256" fill="#79c0ff">src/runner.py:44</text>
+    <text x="34" y="278" fill="#c9d1d9">- Terraform: public-read ACL — </text>
+    <text x="374" y="278" fill="#79c0ff">infra/main.tf:8</text>
+
+    <text x="34" y="320" fill="#d29922" font-weight="700">## MEDIUM (5)</text>
+    <text x="34" y="346" fill="#c9d1d9">- Possible SQL injection — </text>
+    <text x="322" y="346" fill="#79c0ff">api/query.py:31</text>
+    <text x="34" y="368" fill="#c9d1d9">- Non-crypto RNG for a security value — </text>
+    <text x="446" y="368" fill="#79c0ff">auth/session.py:19</text>
+    <text x="34" y="390" fill="#c9d1d9">- yaml.load without SafeLoader — </text>
+    <text x="358" y="390" fill="#79c0ff">settings.py:7</text>
+
+    <text x="34" y="432" fill="#7ee787">HIGH 3  MEDIUM 5  LOW 2</text>
+    <text x="248" y="432" fill="#8b949e">-&gt; SECURITY.md</text>
+  </g>
+</svg>

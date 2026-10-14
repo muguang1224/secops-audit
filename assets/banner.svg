@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="300" viewBox="0 0 1280 300" role="img" aria-label="secops-audit — offline security review for code and agents">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="55%" stop-color="#111823"/>
+      <stop offset="100%" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="shield" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#79c0ff"/>
+      <stop offset="100%" stop-color="#1f6feb"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1f6feb" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#1f6feb" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="300" rx="16" fill="url(#bg)"/>
+  <rect width="1280" height="300" rx="16" fill="none" stroke="#30363d" stroke-width="1"/>
+  <rect x="0" y="0" width="640" height="300" rx="16" fill="url(#glow)"/>
+
+  <!-- shield -->
+  <path d="M120 84 L174 103 V152 C174 191 151 214 120 227 C89 214 66 191 66 152 V103 Z"
+        fill="url(#shield)"/>
+  <path d="M96 152 l16 16 l32 -37" fill="none" stroke="#0d1117" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- title -->
+  <text x="222" y="138" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+        font-size="60" font-weight="700" fill="#f0f6fc" letter-spacing="-1">secops-audit</text>
+  <text x="225" y="180" font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif"
+        font-size="23" fill="#8b949e">Offline security review for code — and for agents</text>
+
+  <!-- chips -->
+  <g font-family="ui-sans-serif, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" font-size="15">
+    <rect x="224" y="212" width="150" height="36" rx="18" fill="#1f6feb" fill-opacity="0.16" stroke="#1f6feb" stroke-opacity="0.55"/>
+    <text x="299" y="236" text-anchor="middle" fill="#79c0ff">0 dependencies</text>
+
+    <rect x="388" y="212" width="110" height="36" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#30363d"/>
+    <text x="443" y="236" text-anchor="middle" fill="#c9d1d9">60+ rules</text>
+
+    <rect x="512" y="212" width="118" height="36" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#30363d"/>
+    <text x="571" y="236" text-anchor="middle" fill="#c9d1d9">SARIF + CI</text>
+
+    <rect x="644" y="212" width="200" height="36" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#30363d"/>
+    <text x="744" y="236" text-anchor="middle" fill="#c9d1d9">OWASP · GDPR · HIPAA</text>
+  </g>
+
+  <!-- corner mark -->
+  <text x="1248" y="52" text-anchor="end" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+        font-size="16" fill="#484f58">stdlib only</text>
+</svg>
