@@ -1,0 +1,32 @@
+name: secops-audit
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  security-events: write   # required to upload SARIF to code scanning
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Uses this repo's own composite action (action.yml).
+      # In another repo, use:  uses: muguang1224/secops-audit@main
+      - name: Run secops-audit
+        uses: ./
+        with:
+          path: .
+          min-severity: MEDIUM
+          fail-on: HIGH
+          args: '--exclude tests/fixtures/'
+
+      - name: Upload SARIF to code scanning
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: secops-audit.sarif

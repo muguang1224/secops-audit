@@ -4,3 +4,5 @@ __pycache__/
 venv/
 SECURITY.md
 findings.json
+secops-audit.sarif
+.secops-baseline.json

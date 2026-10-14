@@ -1,0 +1,49 @@
+name: 'secops-audit'
+description: 'Offline security scan: hardcoded secrets, dangerous code, IaC misconfig. Emits SARIF for GitHub code scanning and gates the build on HIGH findings.'
+author: 'muguang1224'
+branding:
+  icon: 'shield'
+  color: 'red'
+inputs:
+  path:
+    description: 'Directory to scan'
+    required: false
+    default: '.'
+  min-severity:
+    description: 'Lowest severity to report: HIGH | MEDIUM | LOW'
+    required: false
+    default: 'LOW'
+  fail-on:
+    description: 'Exit non-zero at/above this severity: HIGH | MEDIUM | LOW | never'
+    required: false
+    default: 'HIGH'
+  sarif-file:
+    description: 'Where to write the SARIF report (for code scanning upload)'
+    required: false
+    default: 'secops-audit.sarif'
+  args:
+    description: 'Extra arguments passed through to audit.py (e.g. --entropy --baseline .x.json)'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - name: Scan -> SARIF
+      shell: bash
+      run: |
+        python3 "${{ github.action_path }}/scripts/audit.py" \
+          --path "${{ inputs.path }}" \
+          --min-severity "${{ inputs.min-severity }}" \
+          --format sarif \
+          --out "${{ inputs.sarif-file }}" \
+          --fail-on never \
+          ${{ inputs.args }}
+    - name: Gate on findings
+      shell: bash
+      run: |
+        python3 "${{ github.action_path }}/scripts/audit.py" \
+          --path "${{ inputs.path }}" \
+          --min-severity "${{ inputs.min-severity }}" \
+          --format json \
+          --fail-on "${{ inputs.fail-on }}" \
+          ${{ inputs.args }} > /dev/null
